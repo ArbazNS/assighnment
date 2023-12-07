@@ -18,7 +18,7 @@ $user = $userResult->fetch_assoc();
 $queryFriends = "SELECT u.id AS friend_id, u.username
                 FROM friends f
                 JOIN users u ON f.friend_id = u.id
-                WHERE f.user_id = $user_id";
+                WHERE f.user_id = $user_id LIMIT 20";
 $friendsResult = $conn->query($queryFriends);
 
 // Fetch all users who aren't friends
